@@ -10,6 +10,11 @@
             <label for="{{field.id_for_label}}">{{ field.label }}</label>
             {{field|add_class:'form-control'}}  <!--Adicionando o bootstrap no python-->
         </div>
+        {% for error in field.errors %}
+        <section class="alert alert-danger" role="alert">
+            {{ field.errors }}
+        </section>
+        {% endfor %}
         {% endfor %}
         <input type="submit" value='OK' class="btn btn-success">
     </form>
