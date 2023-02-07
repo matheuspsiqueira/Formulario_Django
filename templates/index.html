@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load widget_tweaks %}  <!--Biblioteca para utilizar classes do bootstrap no código python-->
 
-<section class="col-8">
+<section class="container col-6">
     <form action="{% url 'minha_consulta' %}" method="post">
         {% csrf_token %}
         {% for field in form.visible_fields %}
         <div class="form-group">
             <label for="{{field.id_for_label}}">{{ field.label }}</label>
-            {{field}}
+            {{field|add_class:'form-control'}}  <!--Adicionando o bootstrap no python-->
         </div>
         {% endfor %}
         <input type="submit" value='OK' class="btn btn-success">
