@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from passagens.forms import PassaegmForms
+from passagens.forms import PassagemForms
 
 def index(request):
     form = PassaegmForms()
@@ -8,7 +8,7 @@ def index(request):
 
 def revisao_consulta(request):
     if request.method == 'POST':
-        form = PassaegmForms(request.POST)
+        form = PassagemForms(request.POST)
         if form.is_valid():
             contexto = {'form':form}
             return render(request, 'minha_consulta.html', contexto)
